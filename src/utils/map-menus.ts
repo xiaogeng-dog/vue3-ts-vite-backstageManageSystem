@@ -7,12 +7,9 @@ function loadLocalRoutes() {
   const localRoutes: RouteRecordRaw[] = []
 
   // 1.1.读取router/main所有的ts文件
-  const files: Record<string, any> = import.meta.glob(
-    '../router/main/**/*.ts',
-    {
-      eager: true
-    }
-  )
+  const files: Record<string, any> = import.meta.glob('../router/main/**/*.ts', {
+    eager: true
+  })
   // 1.2.将加载的对象放到localRoutes
   for (const key in files) {
     const module = files[key]
@@ -53,7 +50,7 @@ export function mapMenusToRoutes(userMenus: any[]) {
  * @param path 需要匹配的路径
  * @param userMenus 所有的菜单
  */
-export function mapPathToMenu(path: string, userMenus: any[]) {
+export function mapPathToMenu(userMenus: any[], path: string) {
   for (const menu of userMenus) {
     for (const submenu of menu.children) {
       if (submenu.url === path) {
@@ -92,16 +89,16 @@ export function mapPathToBreadcrumbs(path: string, userMenus: any[]) {
 export function mapMenuListToIds(menuList: any[]) {
   const ids: number[] = []
 
-  function recurseGetId(menus: any[]) {
+  function _recurseGetId(menus: any[]) {
     for (const item of menus) {
       if (item.children) {
-        recurseGetId(item.children)
+        _recurseGetId(item.children)
       } else {
         ids.push(item.id)
       }
     }
   }
-  recurseGetId(menuList)
+  _recurseGetId(menuList)
 
   return ids
 }
@@ -114,16 +111,16 @@ export function mapMenuListToIds(menuList: any[]) {
 export function mapMenusToPermissions(menuList: any[]) {
   const permissions: string[] = []
 
-  function recurseGetPermission(menus: any[]) {
+  function _recurseGetPermission(menus: any[]) {
     for (const item of menus) {
       if (item.type === 3) {
         permissions.push(item.permission)
       } else {
-        recurseGetPermission(item.children ?? [])
+        _recurseGetPermission(item.children ?? [])
       }
     }
   }
-  recurseGetPermission(menuList)
+  _recurseGetPermission(menuList)
 
   return permissions
 }

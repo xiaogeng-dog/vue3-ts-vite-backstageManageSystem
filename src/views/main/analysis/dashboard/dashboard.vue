@@ -52,26 +52,15 @@ import ChartCard from './c-cpns/chart-card/chart-card.vue'
 import useAnalysisStore from '@/store/main/analysis/analysis'
 
 // import BaseChart from '@/components/page-echarts'
-import {
-  PieEchart,
-  LineEchart,
-  RoseEchart,
-  BarEchart,
-  MapEchart
-} from '@/components/page-echarts'
+import { PieEchart, LineEchart, RoseEchart, BarEchart, MapEchart } from '@/components/page-echarts'
 
 // 1.发起数据的请求
 const analysisStore = useAnalysisStore()
 analysisStore.fetchAnalysisDataAction()
 
 // 2.从store获取数据
-const {
-  amountList,
-  goodsCategoryCount,
-  goodsCategorySale,
-  goodsCategoryFavor,
-  goodsAddressSale
-} = storeToRefs(analysisStore)
+const { amountList, goodsCategoryCount, goodsCategorySale, goodsCategoryFavor, goodsAddressSale } =
+  storeToRefs(analysisStore)
 
 // 3.获取数据
 const showGoodsCategoryCount = computed(() => {

@@ -1,6 +1,6 @@
 <template>
   <div class="panel">
-    <h1 class="title">弘源后台管理系统</h1>
+    <h1 class="title">后台管理系统</h1>
     <el-tabs type="border-card" stretch v-model="currentTab">
       <el-tab-pane name="account">
         <template #label>
@@ -23,7 +23,7 @@
     </el-tabs>
     <div class="control-account">
       <el-checkbox v-model="isKeep" label="记住密码" />
-      <el-link type="primary">记住密码</el-link>
+      <el-link type="primary">忘记密码</el-link>
     </div>
     <el-button type="primary" class="login-btn" @click="loginAciton">立即登录</el-button>
   </div>
@@ -46,7 +46,9 @@ const accountRef = ref<InstanceType<typeof PanelAccount>>()
 
 function loginAciton() {
   console.log('立即登录')
-  accountRef.value?.loginAction(isKeep.value)
+  if (currentTab.value === 'account') {
+    accountRef.value?.loginAction(isKeep.value)
+  }
 }
 </script>
 

@@ -2,34 +2,32 @@
   <div class="main">
     <el-container class="main-content">
       <el-aside :width="isFold ? '60px' : '210px'">
-        <main-menu :is-fold="isFold" />
+        <nav-menu :is-fold="isFold" />
       </el-aside>
       <el-container>
-        <el-header height="50px">
-          <main-header @fold-change="handleFoldChange" />
+        <el-header height="48px">
+          <nav-header @fold-change="handleFoldChange" />
         </el-header>
         <el-main>
-          <router-view></router-view>
+          <router-view />
         </el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="main">
 import { ref } from 'vue'
-import MainMenu from '@/components/main-menu/main-menu.vue'
-import MainHeader from '@/components/main-header/main-header.vue'
 
-// 处理main-header中折叠的变化
 const isFold = ref(false)
-function handleFoldChange(flag: boolean) {
-  isFold.value = flag
+function handleFoldChange(isFoldValue: boolean) {
+  isFold.value = isFoldValue
 }
 </script>
 
-<style lang="less" scoped>
+<style scoped lang="less">
 .main {
+  width: 100%;
   height: 100%;
 }
 
@@ -43,10 +41,9 @@ function handleFoldChange(flag: boolean) {
     text-align: left;
     cursor: pointer;
     background-color: #001529;
+    transition: width 0.3s linear;
     scrollbar-width: none; /* firefox */
     -ms-overflow-style: none; /* IE 10+ */
-
-    transition: width 0.3s ease;
 
     &::-webkit-scrollbar {
       display: none;

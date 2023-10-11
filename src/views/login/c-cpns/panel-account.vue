@@ -30,11 +30,11 @@ const account = reactive<IAccount>({
 const accountRules: FormRules = {
   name: [
     { required: true, message: '必须输入用户名~', trigger: 'blur' },
-    { pattern: /^[a-z0-9]{6,20}$/, message: '必须是6~20个字母或数字', trigger: 'blur' }
+    { pattern: /^[a-z0-9]{6,20}$/, message: '必须是6~20个字母或数字', trigger: 'change' }
   ],
   password: [
     { required: true, message: '必须输入密码~', trigger: 'blur' },
-    { pattern: /^[a-z0-9]{3,}$/, message: '密码必须在3位以上', trigger: 'blur' }
+    { pattern: /^[a-z0-9]{3,}$/, message: '密码必须在3位以上', trigger: 'change' }
   ]
 }
 

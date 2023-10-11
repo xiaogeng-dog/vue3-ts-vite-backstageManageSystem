@@ -55,9 +55,9 @@ class HYRequest {
   // T => IHomeData
   request<T = any>(config: HYRequestConfig<T>) {
     // 单次请求的成功拦截处理
-    if (config.interceptors?.requestSuccessFn) {
-      config = config.interceptors.requestSuccessFn(config)
-    }
+    // if (config.interceptors?.requestSuccessFn) {
+    //   config = config.interceptors.requestSuccessFn(config)
+    // }
 
     // 返回Promise
     return new Promise<T>((resolve, reject) => {

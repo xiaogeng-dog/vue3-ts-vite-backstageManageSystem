@@ -7,6 +7,7 @@ import Icons from 'unplugin-icons/vite'
 import Components from 'unplugin-vue-components/vite'
 
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+//element-plus样式按需导入
 import { createStyleImportPlugin, ElementPlusResolve } from 'vite-plugin-style-import'
 import IconsResolver from 'unplugin-icons/resolver'
 
