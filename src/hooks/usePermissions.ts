@@ -1,10 +1,10 @@
-// import useLoginStore from '@/store/login/login'
+import useLoginStore from '@/store/login/login'
 
-// function usePermissions(permissionID: string) {
-//   const loginStore = useLoginStore()
-//   const { permissions } = loginStore
+function usePermissions(permissionID: string) {
+  const loginStore = useLoginStore()
+  const { permissions } = loginStore
 
-//   return !!permissions.find((item) => item.includes(permissionID))
-// }
+  return !!permissions.find((item) => item.includes(permissionID))
+}
 
-// export default usePermissions
+export default usePermissions

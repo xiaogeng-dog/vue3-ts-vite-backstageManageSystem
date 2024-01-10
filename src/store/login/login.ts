@@ -17,9 +17,9 @@ interface ILoginState {
 const useLoginStore = defineStore('login', {
   // 如何制定state的类型
   state: (): ILoginState => ({
-    token: localCache.getCache(LOGIN_TOKEN) ?? '',
-    userInfo: localCache.getCache('userInfo') ?? {},
-    userMenus: localCache.getCache('userMenus') ?? [],
+    token: '',
+    userInfo: {},
+    userMenus: [],
     permissions: []
   }),
   actions: {

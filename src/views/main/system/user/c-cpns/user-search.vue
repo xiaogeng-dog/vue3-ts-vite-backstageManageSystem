@@ -5,26 +5,17 @@
       <el-row :gutter="20">
         <el-col :span="8">
           <el-form-item label="用户名" prop="name">
-            <el-input
-              v-model="searchForm.name"
-              placeholder="请输入查询的用户名"
-            />
+            <el-input v-model="searchForm.name" placeholder="请输入查询的用户名" />
           </el-form-item>
         </el-col>
         <el-col :span="8">
           <el-form-item label="真实姓名" prop="realname">
-            <el-input
-              v-model="searchForm.realname"
-              placeholder="请输入查询的真实姓名"
-            />
+            <el-input v-model="searchForm.realname" placeholder="请输入查询的真实姓名" />
           </el-form-item>
         </el-col>
         <el-col :span="8">
           <el-form-item label="手机号码" prop="cellphone">
-            <el-input
-              v-model="searchForm.cellphone"
-              placeholder="请输入查询的手机号码"
-            />
+            <el-input v-model="searchForm.cellphone" placeholder="请输入查询的手机号码" />
           </el-form-item>
         </el-col>
 
@@ -57,9 +48,7 @@
     <!-- 2.重置和搜索的按钮 -->
     <div class="btns">
       <el-button icon="Refresh" @click="handleResetClick">重置</el-button>
-      <el-button icon="Search" type="primary" @click="handleQueryClick"
-        >查询</el-button
-      >
+      <el-button icon="Search" type="primary" @click="handleQueryClick">查询</el-button>
     </div>
   </div>
 </template>

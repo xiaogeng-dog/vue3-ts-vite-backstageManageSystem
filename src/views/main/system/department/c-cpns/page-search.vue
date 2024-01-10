@@ -5,18 +5,12 @@
       <el-row :gutter="20">
         <el-col :span="8">
           <el-form-item label="部门名称" prop="name">
-            <el-input
-              v-model="searchForm.name"
-              placeholder="请输入查询的部门名称"
-            />
+            <el-input v-model="searchForm.name" placeholder="请输入查询的部门名称" />
           </el-form-item>
         </el-col>
         <el-col :span="8">
           <el-form-item label="部门领导" prop="leader">
-            <el-input
-              v-model="searchForm.leader"
-              placeholder="请输入查询的部门领导"
-            />
+            <el-input v-model="searchForm.leader" placeholder="请输入查询的部门领导" />
           </el-form-item>
         </el-col>
         <el-col :span="8">
@@ -36,9 +30,7 @@
     <!-- 2.重置和搜索的按钮 -->
     <div class="btns">
       <el-button icon="Refresh" @click="handleResetClick">重置</el-button>
-      <el-button icon="Search" type="primary" @click="handleQueryClick"
-        >查询</el-button
-      >
+      <el-button icon="Search" type="primary" @click="handleQueryClick">查询</el-button>
     </div>
   </div>
 </template>

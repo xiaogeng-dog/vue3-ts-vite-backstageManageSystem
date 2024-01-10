@@ -15,11 +15,7 @@
             <el-input v-model="formData.leader" placeholder="请输入部门领导" />
           </el-form-item>
           <el-form-item label="选择部门" prop="parentId">
-            <el-select
-              v-model="formData.parentId"
-              placeholder="请选择部门"
-              style="width: 100%"
-            >
+            <el-select v-model="formData.parentId" placeholder="请选择部门" style="width: 100%">
               <template v-for="item in entireDepartments" :key="item.id">
                 <el-option :label="item.name" :value="item.id" />
               </template>
@@ -30,9 +26,7 @@
       <template #footer>
         <span class="dialog-footer">
           <el-button @click="dialogVisible = false">取消</el-button>
-          <el-button type="primary" @click="handleConfirmClick">
-            确定
-          </el-button>
+          <el-button type="primary" @click="handleConfirmClick"> 确定 </el-button>
         </span>
       </template>
     </el-dialog>

@@ -17,7 +17,7 @@
           <template v-if="item.type === 'time'">
             <el-table-column align="center" :prop="item.prop" :label="item.label">
               <template #default="scope">
-                {{ utcFormat(scope.row[item.prop]) }}
+                {{ formatUTC(scope.row[item.prop]) }}
               </template>
             </el-table-column>
           </template>
@@ -76,9 +76,9 @@
 <script setup lang="ts" name="content">
 import { storeToRefs } from 'pinia'
 import useSystemStore from '@/store/main/system/system'
-import { utcFormat } from '@/utils/format'
+import { formatUTC } from '@/utils/format'
 import { ref } from 'vue'
-import usePermission from '@/hooks/usePermission'
+import usePermission from '@/hooks/usePermissions'
 
 interface IProps {
   contentConfig: {
@@ -111,7 +111,7 @@ function fetchPageListData(queryInfo: any = {}) {
   const offset = (currentPage.value - 1) * size
 
   // 2.发生网络请求
-  systemStore.getPageListDataAction(props.contentConfig.pageName, { offset, size, ...queryInfo })
+  systemStore.postPageListAction(props.contentConfig.pageName, { offset, size, ...queryInfo })
 }
 fetchPageListData()
 systemStore.$onAction((arg) => {
@@ -141,7 +141,7 @@ function handleNewData() {
 
 // 5.删除和编辑操作
 function handleDeleteClick(id: number) {
-  systemStore.deletePageDataAction(props.contentConfig.pageName, id)
+  systemStore.deletePageByIdAction(props.contentConfig.pageName, id)
 }
 
 function handleEditClick(data: any) {

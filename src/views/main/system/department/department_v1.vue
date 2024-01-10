@@ -1,14 +1,7 @@
 <template>
   <div class="department">
-    <page-search
-      @query-click="handleQueryClick"
-      @reset-click="handleResetClick"
-    />
-    <page-content
-      ref="contentRef"
-      @new-click="handleNewClick"
-      @edit-click="handleEditClick"
-    />
+    <page-search @query-click="handleQueryClick" @reset-click="handleResetClick" />
+    <page-content ref="contentRef" @new-click="handleNewClick" @edit-click="handleEditClick" />
     <page-modal ref="modalRef" />
   </div>
 </template>

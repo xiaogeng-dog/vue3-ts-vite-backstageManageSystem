@@ -1,14 +1,7 @@
 <template>
   <div class="user">
-    <user-search
-      @query-click="handleQueryClick"
-      @reset-click="handleResetClick"
-    />
-    <user-content
-      ref="contentRef"
-      @new-click="handleNewClick"
-      @edit-click="handleEditClick"
-    />
+    <user-search @query-click="handleQueryClick" @reset-click="handleResetClick" />
+    <user-content ref="contentRef" @new-click="handleNewClick" @edit-click="handleEditClick" />
     <user-modal ref="modalRef" />
   </div>
 </template>
