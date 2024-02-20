@@ -22,8 +22,8 @@ import { localCache } from '@/utils/cache'
 
 // 定义内部的数据
 const account = reactive<IAccount>({
-  name: localCache.getCache('name') ?? '',
-  password: localCache.getCache('password') ?? ''
+  name: localCache.getCache('name') ?? 'coderwhy',
+  password: localCache.getCache('password') ?? '123456'
 })
 
 // 定义form的验证规则
