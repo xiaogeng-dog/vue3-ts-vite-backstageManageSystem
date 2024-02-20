@@ -8,8 +8,8 @@
     <page-content
       :content-config="contentConfig"
       ref="contentRef"
-      @new-click="handleNewClick"
-      @edit-click="handleEditClick"
+      @new-data-click="handleNewClick"
+      @edit-data-click="handleEditClick"
     />
     <page-modal :modal-config="modalConfig" :other-info="otherInfo" ref="modalRef">
       <template #menulist>

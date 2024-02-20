@@ -1,7 +1,7 @@
 <template>
   <div class="search">
     <!-- 1.1.表单输入 -->
-    <el-form :model="searchForm" ref="formRef" label-width="120px" size="large">
+    <el-form :model="searchForm" ref="formRef" label-width="80px" size="default">
       <el-row :gutter="20">
         <template v-for="item in searchConfig.formItems" :key="item.prop">
           <el-col :span="8">
@@ -32,8 +32,8 @@
     </el-form>
     <!-- 1.2.搜索按钮  -->
     <div class="btns">
-      <el-button size="large" icon="Refresh" @click="handleResetClick">重置</el-button>
-      <el-button size="large" icon="Search" type="primary" @click="handleQueryClick">
+      <el-button size="default" icon="Refresh" @click="handleResetClick">重置</el-button>
+      <el-button size="default" icon="Search" type="primary" @click="handleQueryClick">
         查询
       </el-button>
     </div>

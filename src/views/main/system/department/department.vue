@@ -8,8 +8,8 @@
     <page-content
       :content-config="contentConfig"
       ref="contentRef"
-      @new-click="handleNewClick"
-      @edit-click="handleEditClick"
+      @new-data-click="handleNewClick"
+      @edit-data-click="handleEditClick"
     >
       <template #leader="scope">
         <span class="leader">哈哈哈: {{ scope.row[scope.prop] }}</span>
@@ -42,7 +42,7 @@ const modalConfigRef = computed(() => {
   const departments = mainStore.entireDepartments.map((item) => {
     return { label: item.name, value: item.id }
   })
-  modalConfig.formItems.forEach((item) => {
+  modalConfig.formItems.forEach((item: any) => {
     if (item.prop === 'parentId') {
       item.options.push(...departments)
     }

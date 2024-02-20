@@ -1,6 +1,11 @@
 <template>
   <div class="modal">
-    <el-dialog v-model="dialogVisible" :title="modalConfig.title" width="30%" center>
+    <el-dialog
+      v-model="dialogVisible"
+      :title="!isEdit ? modalConfig.header.newTitle : modalConfig.header.editTitle"
+      width="30%"
+      center
+    >
       <div class="form">
         <el-form :model="formData" label-width="80px" size="large">
           <template v-for="item in modalConfig.formItems" :key="item.prop">
@@ -21,8 +26,8 @@
                   :placeholder="item.placeholder"
                   style="width: 100%"
                 >
-                  <template v-for="value in item.options" :key="value.id">
-                    <el-option :value="value.id" :label="value.name" />
+                  <template v-for="value in item.options" :key="value.value">
+                    <el-option :value="value.value" :label="value.label" />
                   </template>
                 </el-select>
               </template>
@@ -55,18 +60,22 @@
 <script setup lang="ts" name="modal">
 import useSystemStore from '@/store/main/system/system'
 import { reactive, ref } from 'vue'
+import type { IModalProps } from './type'
 
 // 定义props
 interface IProps {
   modalConfig: {
     pageName: string
-    title: string
+    header: {
+      newTitle: string
+      editTitle: string
+    }
     formItems: any[]
   }
   otherInfo?: any
 }
 
-const props = defineProps<IProps>()
+const props = defineProps<IModalProps>()
 
 const dialogVisible = ref(false)
 const isEdit = ref(false)
