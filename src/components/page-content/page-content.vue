@@ -114,11 +114,13 @@ function fetchPageListData(queryInfo: any = {}) {
   systemStore.postPageListAction(props.contentConfig.pageName, { offset, size, ...queryInfo })
 }
 fetchPageListData()
-systemStore.$onAction((arg) => {
-  if (arg.name === 'editPageDataAction' || arg.name === 'newPageDataAction') {
-    currentPage.value = 1
-    pageSize.value = 10
-  }
+systemStore.$onAction(({ name, after }) => {
+  after(() => {
+    if (name === 'editPageDataAction' || name === 'newPageDataAction') {
+      currentPage.value = 1
+      pageSize.value = 10
+    }
+  })
 })
 
 // 2.展示数据

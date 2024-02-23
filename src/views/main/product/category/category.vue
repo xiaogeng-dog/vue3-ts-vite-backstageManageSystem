@@ -16,8 +16,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import PageSearch from '@/components/page-search'
-import PageContent from '@/components/page-content'
+import PageSearch from '@/components/page-search/page-search.vue'
+import PageContent from '@/components/page-content/page-content.vue'
 
 import { usePageSearch } from '@/hooks/usePageSearch'
 

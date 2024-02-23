@@ -1,10 +1,16 @@
 import useLoginStore from '@/store/login/login'
 
-function usePermissions(permissionID: string) {
+function usePermissions(pageName: string, handle?: string) {
   const loginStore = useLoginStore()
   const { permissions } = loginStore
+  let handlePermission = ''
+  if (arguments.length == 2) {
+    handlePermission = `${pageName}:${handle}`
+  } else {
+    handlePermission = pageName
+  }
 
-  return !!permissions.find((item) => item.includes(permissionID))
+  return !!permissions.find((item) => item.includes(handlePermission))
 }
 
 export default usePermissions

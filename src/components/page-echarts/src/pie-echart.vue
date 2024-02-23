@@ -8,10 +8,10 @@
 import { defineProps, computed } from 'vue'
 import BaseEchart from './base-echart.vue'
 import type { EChartsOption } from 'echarts'
-import type { IPieEchartData } from '../types'
+import type { IEchartValueData } from '../types'
 
 const props = defineProps<{
-  pieData: IPieEchartData[]
+  pieData: IEchartValueData[]
 }>()
 
 const options = computed<EChartsOption>(() => {

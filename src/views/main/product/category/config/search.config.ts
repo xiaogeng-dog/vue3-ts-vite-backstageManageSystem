@@ -1,6 +1,7 @@
-import { IForm } from '@/base-ui/form'
+import type { IForm } from '@/base-ui/form'
 
-export const searchFormConfig: IForm = {
+export const searchFormConfig = {
+  pageName: 'department',
   formItems: [
     {
       field: 'name',
@@ -20,8 +21,5 @@ export const searchFormConfig: IForm = {
         type: 'daterange'
       }
     }
-  ],
-  labelWidth: '100px',
-  itemStyle: { padding: '10px 40px' },
-  colLayout: { span: 8 }
+  ]
 }

@@ -16,7 +16,7 @@ const contentConfig = {
     { type: 'timer', label: '更新时间', prop: 'updateAt' },
     { type: 'handler', label: '操作', width: '150px' }
   ],
-  childrenTree: {
+  childrenProps: {
     rowKey: 'id',
     treeProps: {
       children: 'children'
