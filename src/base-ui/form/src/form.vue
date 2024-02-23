@@ -56,7 +56,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType, ref, watch } from 'vue'
-import { IFormItem } from '../types'
+import type { IFormItem } from '../types/index'
 
 export default defineComponent({
   props: {
