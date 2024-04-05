@@ -11,8 +11,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { IBreadcrumb } from '../types'
+import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+import type { IBreadcrumb } from '../types'
 
 export default defineComponent({
   props: {

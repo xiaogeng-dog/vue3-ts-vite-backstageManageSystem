@@ -3,7 +3,7 @@ import type { EChartsOption } from 'echarts'
 
 // 注册中国地图
 import chinaJson from '../data/china.json'
-echarts.registerMap('china', chinaJson)
+echarts.registerMap('china', chinaJson as any)
 
 export function useEcharts(domEl: HTMLElement, theme = 'light') {
   // 初始化echarts

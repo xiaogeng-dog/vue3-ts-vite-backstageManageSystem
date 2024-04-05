@@ -5,10 +5,10 @@ export const usePageSearch = () => {
   const pageContentRef = ref<InstanceType<typeof PageContent>>()
   const handleQueryClick = (queryInfo: any) => {
     console.log(pageContentRef.value)
-    pageContentRef.value?.getPageData(queryInfo)
+    pageContentRef.value?.fetchPageListData(queryInfo)
   }
   const handleResetClick = () => {
-    pageContentRef.value?.getPageData()
+    pageContentRef.value?.fetchPageListData()
   }
 
   return [pageContentRef, handleQueryClick, handleResetClick]

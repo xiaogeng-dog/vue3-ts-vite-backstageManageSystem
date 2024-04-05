@@ -1,4 +1,4 @@
-export const contentTableConfig = {
+export const contentTableConfig: any = {
   title: '用户列表',
   newBtnTitle: '新建商品',
   propList: [

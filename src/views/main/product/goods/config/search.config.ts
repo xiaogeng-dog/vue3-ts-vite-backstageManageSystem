@@ -1,6 +1,6 @@
-import type { IForm } from '@/base-ui/form'
+// import type { IForm } from '@/base-ui/form'
 
-export const searchFormConfig: IForm = {
+export const searchFormConfig: any = {
   formItems: [
     {
       field: 'name',

@@ -23,7 +23,8 @@
     "normalize.css": "^8.0.1",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.4"
+    "vue-router": "^4.2.4",
+    "wangeditor": "^4.7.15"
   },
   "devDependencies": {
     "@iconify-json/ep": "^1.1.12",

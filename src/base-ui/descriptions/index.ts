@@ -1,5 +1,5 @@
 import HyDescriptions from './src/descriptions.vue'
 import type { DescriptionProp } from './types/types'
 
-export { DescriptionProp }
+export type { DescriptionProp }
 export default HyDescriptions

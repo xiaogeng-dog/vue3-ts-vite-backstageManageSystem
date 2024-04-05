@@ -1,6 +1,6 @@
 <template>
   <div class="text-link">
-    <template v-for="(item, index) in textArrs" :key="index">
+    <template v-for="(item, index) in textArrs as any[]" :key="index">
       <div class="item">
         <span class="title">{{ item.title }} : </span>
         <el-link type="primary">{{ item.desp }}</el-link>
