@@ -24,13 +24,9 @@ max_line_length = off
 trim_trailing_whitespace = false
 ```
 
-
-
 VSCode需要安装一个插件：EditorConfig for VS Code
 
 ![image-20210722215138665](https://tva1.sinaimg.cn/large/008i3skNgy1gsq2gh989yj30pj05ggmb.jpg)
-
-
 
 ### 1.2. 使用prettier工具
 
@@ -44,12 +40,12 @@ npm install prettier -D
 
 2.配置.prettierrc文件：
 
-* useTabs：使用tab缩进还是空格缩进，选择false；
-* tabWidth：tab是空格的情况下，是几个空格，选择2个；
-* printWidth：当行字符的长度，推荐80，也有人喜欢100或者120；
-* singleQuote：使用单引号还是双引号，选择true，使用单引号；
-* trailingComma：在多行输入的尾逗号是否添加，设置为 `none`，比如对象类型的最后一个属性后面是否加一个，；
-* semi：语句末尾是否要加分号，默认值true，选择false表示不加；
+- useTabs：使用tab缩进还是空格缩进，选择false；
+- tabWidth：tab是空格的情况下，是几个空格，选择2个；
+- printWidth：当行字符的长度，推荐80，也有人喜欢100或者120；
+- singleQuote：使用单引号还是双引号，选择true，使用单引号；
+- trailingComma：在多行输入的尾逗号是否添加，设置为 `none`，比如对象类型的最后一个属性后面是否加一个，；
+- semi：语句末尾是否要加分号，默认值true，选择false表示不加；
 
 ```json
 {
@@ -61,8 +57,6 @@ npm install prettier -D
   "semi": false
 }
 ```
-
-
 
 3.创建.prettierignore忽略文件
 
@@ -78,15 +72,9 @@ npm install prettier -D
 /public/*
 ```
 
-
-
 4.VSCode需要安装prettier的插件
 
 ![image-20210722214543454](https://tva1.sinaimg.cn/large/008i3skNgy1gsq2acx21rj30ow057mxp.jpg)
-
-
-
-
 
 5.VSCod中的配置
 
@@ -95,24 +83,16 @@ npm install prettier -D
 
 ![1665644883500](C:\Users\DELL\AppData\Roaming\Typora\typora-user-images\1665644883500.png)
 
-
-
-
-
 6.测试prettier是否生效
 
-* 测试一：在代码中保存代码；
-* 测试二：配置一次性修改的命令；
+- 测试一：在代码中保存代码；
+- 测试二：配置一次性修改的命令；
 
 在package.json中配置一个scripts：
 
 ```json
     "prettier": "prettier --write ."
 ```
-
-
-
-
 
 ### 1.3. 使用ESLint检测
 
@@ -143,8 +123,6 @@ npm install eslint-plugin-prettier eslint-config-prettier -D
   ],
 ```
 
-
-
 4.VSCode中eslint的配置
 
 ```json
@@ -161,25 +139,26 @@ npm install eslint-plugin-prettier eslint-config-prettier -D
   },
 ```
 
-
-
 ### 1.4. git Husky和eslint（后续）
 
 虽然我们已经要求项目使用eslint了，但是不能保证组员提交代码之前都将eslint中的问题解决掉了：
 
-* 也就是我们希望保证代码仓库中的代码都是符合eslint规范的；
+- 也就是我们希望保证代码仓库中的代码都是符合eslint规范的；
 
-* 那么我们需要在组员执行 `git commit ` 命令的时候对其进行校验，如果不符合eslint规范，那么自动通过规范进行修复；
+- 那么我们需要在组员执行 `git commit ` 命令的时候对其进行校验，如果不符合eslint规范，那么自动通过规范进行修复；
 
 那么如何做到这一点呢？可以通过Husky工具：
 
-* husky是一个git hook工具，可以帮助我们触发git提交的各个阶段：pre-commit、commit-msg、pre-push
+- husky是一个git hook工具，可以帮助我们触发git提交的各个阶段：pre-commit、commit-msg、pre-push
 
 如何使用husky呢？
 
 这里我们可以使用自动配置命令：
 
 ```shell
+pnpm add --save-dev husky
+pnpm exec husky init
+
 npx husky-init && npm install
 ```
 
@@ -201,13 +180,7 @@ npx husky-init && npm install
 
 ![image-20210723112932943](https://tva1.sinaimg.cn/large/008i3skNgy1gsqq3hn229j30nf04z74q.jpg)
 
-
-
-
-
 这个时候我们执行git commit的时候会自动对代码进行lint校验。
-
-
 
 ### 1.5. git commit规范（后续）
 
@@ -219,12 +192,27 @@ npx husky-init && npm install
 
 但是如果每次手动来编写这些是比较麻烦的事情，我们可以使用一个工具：Commitizen
 
-* Commitizen 是一个帮助我们编写规范 commit message 的工具；
+- Commitizen 是一个帮助我们编写规范 commit message 的工具；
 
-1.安装Commitizen
+  1.安装Commitizen
 
 ```shell
+pnpm install --save-dev git-cz
+
+
 npm install commitizen -D
+```
+
+package.json:
+
+```json
+{
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
+  }
+}
 ```
 
 2.安装cz-conventional-changelog，并且初始化cz-conventional-changelog：
@@ -243,39 +231,39 @@ npx commitizen init cz-conventional-changelog --save-dev --save-exact
 
 这个时候我们提交代码需要使用 `npx cz`：
 
-* 第一步是选择type，本次更新的类型
+- 第一步是选择type，本次更新的类型
 
-| Type     | 作用                                                         |
-| -------- | ------------------------------------------------------------ |
-| feat     | 新增特性 (feature)                                           |
-| fix      | 修复 Bug(bug fix)                                            |
-| docs     | 修改文档 (documentation)                                     |
-| style    | 代码格式修改(white-space, formatting, missing semi colons, etc) |
-| refactor | 代码重构(refactor)                                           |
-| perf     | 改善性能(A code change that improves performance)            |
-| test     | 测试(when adding missing tests)                              |
-| build    | 变更项目构建或外部依赖（例如 scopes: webpack、gulp、npm 等） |
+| Type     | 作用                                                                                   |
+| -------- | -------------------------------------------------------------------------------------- |
+| feat     | 新增特性 (feature)                                                                     |
+| fix      | 修复 Bug(bug fix)                                                                      |
+| docs     | 修改文档 (documentation)                                                               |
+| style    | 代码格式修改(white-space, formatting, missing semi colons, etc)                        |
+| refactor | 代码重构(refactor)                                                                     |
+| perf     | 改善性能(A code change that improves performance)                                      |
+| test     | 测试(when adding missing tests)                                                        |
+| build    | 变更项目构建或外部依赖（例如 scopes: webpack、gulp、npm 等）                           |
 | ci       | 更改持续集成软件的配置文件和 package 中的 scripts 命令，例如 scopes: Travis, Circle 等 |
-| chore    | 变更构建流程或辅助工具(比如更改测试环境)                     |
-| revert   | 代码回退                                                     |
+| chore    | 变更构建流程或辅助工具(比如更改测试环境)                                               |
+| revert   | 代码回退                                                                               |
 
-* 第二步选择本次修改的范围（作用域）
+- 第二步选择本次修改的范围（作用域）
 
 ![image-20210723150147510](https://tva1.sinaimg.cn/large/008i3skNgy1gsqw8ca15oj30r600wmx4.jpg)
 
-* 第三步选择提交的信息
+- 第三步选择提交的信息
 
 ![image-20210723150204780](https://tva1.sinaimg.cn/large/008i3skNgy1gsqw8mq3zlj60ni01hmx402.jpg)
 
-* 第四步提交详细的描述信息
+- 第四步提交详细的描述信息
 
 ![image-20210723150223287](https://tva1.sinaimg.cn/large/008i3skNgy1gsqw8y05bjj30kt01fjrb.jpg)
 
-* 第五步是否是一次重大的更改
+- 第五步是否是一次重大的更改
 
 ![image-20210723150322122](https://tva1.sinaimg.cn/large/008i3skNgy1gsqw9z5vbij30bm00q744.jpg)
 
-* 第六步是否影响某个open issue
+- 第六步是否影响某个open issue
 
 ![image-20210723150407822](https://tva1.sinaimg.cn/large/008i3skNgy1gsqwar8xp1j30fq00ya9x.jpg)
 
@@ -283,15 +271,13 @@ npx commitizen init cz-conventional-changelog --save-dev --save-exact
 
 ![image-20210723150526211](https://tva1.sinaimg.cn/large/008i3skNgy1gsqwc4gtkxj30e207174t.jpg)
 
-
-
 #### 1.5.2. 代码提交验证
 
 如果我们按照cz来规范了提交风格，但是依然有同事通过 `git commit` 按照不规范的格式提交应该怎么办呢？
 
-* 我们可以通过commitlint来限制提交；
+- 我们可以通过commitlint来限制提交；
 
-1.安装 @commitlint/config-conventional 和 @commitlint/cli
+  1.安装 @commitlint/config-conventional 和 @commitlint/cli
 
 ```shell
 npm i @commitlint/config-conventional @commitlint/cli -D
@@ -311,8 +297,6 @@ module.exports = {
 npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"
 ```
 
-
-
 ## 二. 接口文档
 
 接口文档v1版本：
@@ -329,13 +313,10 @@ http://152.136.185.210:4000
 设置全局token的方法：
 
 ```js
-const res = pm.response.json();
-pm.globals.set("token", res.data.token);
+const res = pm.response.json()
+pm.globals.set('token', res.data.token)
 ```
-
-
 
 接口文档v2版本：（有部分更新）
 
 https://documenter.getpostman.com/view/12387168/TzzDKb12
-
